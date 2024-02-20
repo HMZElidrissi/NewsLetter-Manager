@@ -22,51 +22,48 @@
             </svg>
             Dashboard
           </a>
-          @can('viewAny', App\Models\User::class)
-          <a href="{{ route('clients.index') }}" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+          <a href="" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-base font-medium rounded-md">
             <!-- Heroicon name: outline/users -->
             <svg class="text-gray-400 group-hover:text-amber-600 mr-4 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
             </svg>
             Clients
           </a>
-          @endcan
-          @can('viewAny', App\Models\Product::class)
-          <a href="{{ route('products.index') }}" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+          <a href="" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-base font-medium rounded-md">
             <!-- Heroicon name: outline/folder -->
             <svg class="text-gray-400 group-hover:text-amber-600 mr-4 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10V6a3 3 0 0 1 3-3v0a3 3 0 0 1 3 3v4m3-2 1 12c0 .5-.5 1-1 1H6a1 1 0 0 1-1-1L6 8h12Z"/>
             </svg>
             Products
           </a>
-          @endcan
-          @can('viewAny', App\Models\Category::class)
-          <a href="{{ route('categories.index') }}" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+
+
+          <a href="" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-base font-medium rounded-md">
             <!-- Heroicon name: outline/Categories -->
             <svg class="text-gray-400 group-hover:text-amber-600 mr-4 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.6 8.4h0m-4.7 11.3-6.6-6.6a1 1 0 0 1 0-1.4l7.3-7.4a1 1 0 0 1 .7-.3H18a2 2 0 0 1 2 2v5.5a1 1 0 0 1-.3.7l-7.5 7.5a1 1 0 0 1-1.3 0Z"/>
             </svg>
             Categories
           </a>
-          @endcan
-           @can('viewAny', App\Models\Sale::class)
-          <a href="{{ route('sales.index') }}" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+
+
+          <a href="" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-base font-medium rounded-md">
             <!-- Heroicon name: outline/inbox -->
             <svg class="text-gray-400 group-hover:text-amber-600 mr-4 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.3L19 7H7.3"/>
             </svg>
             Sales
           </a>
-           @endcan
-          @can('viewAny', App\Models\Permission::class)
-          <a href="{{ route('permissions.index') }}" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+
+
+          <a href="" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-base font-medium rounded-md">
             <!-- Heroicon name: outline/chart-bar -->
             <svg class="text-gray-400 group-hover:text-amber-600 mr-4 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v3m-3-6V7a3 3 0 1 1 6 0v4m-8 0h10c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1H7a1 1 0 0 1-1-1v-7c0-.6.4-1 1-1Z"/>
             </svg>
             Permissions
           </a>
-          @endcan
+
         </nav>
       </div>
     </div>
@@ -92,51 +89,50 @@
             </svg>
             Dashboard
           </a>
-          @can('viewAny', App\Models\User::class)
-          <a href="{{ route('clients.index') }}" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+
+          <a href="" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
             <!-- Heroicon name: outline/users -->
             <svg class="text-gray-400 group-hover:text-amber-600 mr-3 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
             </svg>
             Clients
           </a>
-          @endcan
-          @can('viewAny', App\Models\Product::class)
-          <a href="{{ route('products.index') }}" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+
+          <a href="" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
             <!-- Heroicon name: outline/folder -->
             <svg class="text-gray-400 group-hover:text-amber-600 mr-3 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10V6a3 3 0 0 1 3-3v0a3 3 0 0 1 3 3v4m3-2 1 12c0 .5-.5 1-1 1H6a1 1 0 0 1-1-1L6 8h12Z"/>
             </svg>
             Products
           </a>
-          @endcan
-          @can('viewAny', App\Models\Category::class)
-          <a href="{{ route('categories.index') }}" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+
+
+          <a href="" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
             <!-- Heroicon name: outline/Categories -->
             <svg class="text-gray-400 group-hover:text-amber-600 mr-3 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.6 8.4h0m-4.7 11.3-6.6-6.6a1 1 0 0 1 0-1.4l7.3-7.4a1 1 0 0 1 .7-.3H18a2 2 0 0 1 2 2v5.5a1 1 0 0 1-.3.7l-7.5 7.5a1 1 0 0 1-1.3 0Z"/>
             </svg>
             Categories
           </a>
-          @endcan
-           @can('viewAny', App\Models\Sale::class)
-          <a href="{{ route('sales.index') }}" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+
+
+          <a href="" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
             <!-- Heroicon name: outline/inbox -->
             <svg class="text-gray-400 group-hover:text-amber-600 mr-3 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.3L19 7H7.3"/>
             </svg>
             Sales
           </a>
-           @endcan
-          @can('viewAny', App\Models\Permission::class)
-          <a href="{{ route('permissions.index') }}" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+
+
+          <a href="" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
             <!-- Heroicon name: outline/chart-bar -->
             <svg class="text-gray-400 group-hover:text-amber-600 mr-3 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v3m-3-6V7a3 3 0 1 1 6 0v4m-8 0h10c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1H7a1 1 0 0 1-1-1v-7c0-.6.4-1 1-1Z"/>
             </svg>
             Permissions
           </a>
-          @endcan
+
         </nav>
       </div>
     </div>

@@ -22,7 +22,7 @@
           </form>
         </div>
         <div class="ml-4 flex items-center md:ml-6">
-          <div class="text-gray-500">{{ Auth::user()->name }}</div>
+          <div class="text-gray-500">Amine baih</div>
         </div>
         <div class="ml-4 flex items-center md:ml-6">
           <button type="button" class="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500">
@@ -47,7 +47,7 @@
 
               <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:text-amber-600" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
 
-                <form method="POST" action="{{ route('logout') }}">
+                <form method="POST" action="">
                     @csrf
                     <button class="block px-4 py-2 text-sm text-gray-700 hover:text-amber-600" role="menuitem" tabindex="-1" id="user-menu-item-2" type="submit">Log out</button>
                 </form>
