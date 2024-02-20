@@ -4,11 +4,15 @@ export default {
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
+        "./node_modules/flowbite/**/*.js"
     ],
     mode: "jit",
     theme: {
     extend: {},
     },
-    plugins: [],
+    plugins: [
+        require('flowbite/plugin')
+
+    ],
 }
 

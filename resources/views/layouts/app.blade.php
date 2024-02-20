@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
     <title>@yield('title')</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+
 </head>
 <body class="h-full">
 <div>
@@ -42,5 +44,8 @@
 @endif
 <script src="{{ asset('js/app.js') }}"></script>
 @stack('scripts')
+<script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
 </body>
 </html>
