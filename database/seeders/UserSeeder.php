@@ -2,18 +2,18 @@
 
 namespace Database\Seeders;
 
-use App\Models\Newsletter;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class NewsletterSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Newsletter::factory()
+        User::factory()
             ->count(10)
             ->create();
     }
