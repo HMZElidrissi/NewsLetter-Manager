@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
-@section('title', 'Manage categories')
+@section('title', 'Manage Newsletter')
 
 @section('content')
 <div class="px-4 sm:px-6 lg:px-8">
   <div class="sm:flex sm:items-center">
     <div class="sm:flex-auto">
-      <h1 class="text-xl font-semibold text-gray-900">Categories</h1>
-      <p class="mt-2 text-sm text-gray-700">A list of all the categories of products.</p>
+      <h1 class="text-xl font-semibold text-gray-900">Newsletter</h1>
+      <p class="mt-2 text-sm text-gray-700">A list of all the Newsletter of products.</p>
     </div>
     <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-      <a href="" class="inline-flex items-center justify-center rounded-md border border-transparent bg-amber-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 sm:w-auto">+ Add category</a>
+      <a href="" class="inline-flex items-center justify-center rounded-md border border-transparent bg-amber-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 sm:w-auto">+ Add Newsletter</a>
     </div>
   </div>
   <div class="mt-8 flex flex-col">
@@ -20,16 +20,19 @@
           <table class="min-w-full divide-y divide-gray-300">
             <thead class="bg-gray-50">
               <tr>
-                <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Category</th>
-                <th scope="col"></th>
+                <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Newsletter Image</th>
+                <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Newsletter Title</th>
+                <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Newsletter SubHeader</th>
+                <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Newsletter content</th>
+                <th scope="col">Actions</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-200 bg-white">
-              {{-- @foreach ($categories as $category) --}}
+              {{-- @foreach ($Newsletter as $Newsletter) --}}
               <tr>
                 <td class="whitespace-nowrap pl-4 pr-3 py-4 text-sm text-gray-500">
                   test content
-                  {{-- <div class="text-gray-900">{{ $category->title }}</div> --}}
+                  {{-- <div class="text-gray-900">{{ $Newsletter->title }}</div> --}}
                 </td>
                 <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                   <div class="flex space-x-2">
@@ -45,16 +48,19 @@
                         </g>
                       </svg>
                     </a>
-                    <form action="" method="POST" onsubmit="return confirm('Are you sure?');">
-                      @csrf
-                      @method('DELETE')
-                      <button type="submit">
-                        <svg class="w-5 h-5" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path fill="#ef4444" d="M5.755,20.283,4,8H20L18.245,20.283A2,2,0,0,1,16.265,22H7.735A2,2,0,0,1,5.755,20.283ZM21,4H16V3a1,1,0,0,0-1-1H9A1,1,0,0,0,8,3V4H3A1,1,0,0,0,3,6H21a1,1,0,0,0,0-2Z"/>
-                        </svg>
-                      </button>
-                    </form>
+                    
                   </div>
+                </td>
+                <td>
+                  <form action="" method="POST" onsubmit="return confirm('Are you sure?');">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">
+                      <svg class="w-5 h-5" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#ef4444" d="M5.755,20.283,4,8H20L18.245,20.283A2,2,0,0,1,16.265,22H7.735A2,2,0,0,1,5.755,20.283ZM21,4H16V3a1,1,0,0,0-1-1H9A1,1,0,0,0,8,3V4H3A1,1,0,0,0,3,6H21a1,1,0,0,0,0-2Z"/>
+                      </svg>
+                    </button>
+                  </form>
                 </td>
               </tr>
               {{-- @endforeach --}}
