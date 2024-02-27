@@ -14,9 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('dashboard');
 });
-
+Route::get('/newsletter/index', function () {
+    return view('newsletter.index');
+});
 
 Route::get('/search' , [NewsletterController::class , 'search']);
