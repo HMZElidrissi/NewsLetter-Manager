@@ -21,5 +21,11 @@ Route::get('/', function () {
 Route::get('/newsletter/index', function () {
     return view('newsletter.index');
 });
+Route::get('/newsletter/edit', function () {
+    return view('newsletter.edit');
+});
+Route::get('/newsletter/create', function () {
+    return view('newsletter.create');
+});
 
 Route::get('/search' , [NewsletterController::class , 'search']);
