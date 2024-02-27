@@ -13,4 +13,11 @@ class Newsletter extends Model
     {
         return $this->belongsToMany(Category::class);
     }
+    protected $fillable = [
+        'title',
+        'subheader',
+        'content',
+        'image',
+        'category_id',
+    ];
 }
