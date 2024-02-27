@@ -18,6 +18,7 @@ class NewsletterFactory extends Factory
     {
         return [
             'content' => $this->faker->text,
+            '' => $this->faker->text,
         ];
     }
 }

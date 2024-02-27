@@ -19,4 +19,6 @@ Route::get('/', function () {
 });
 
 
-Route::get('/search' , [NewsletterController::class , 'search']);
+Route::get('/search', [NewsletterController::class, 'search']);
+Route::get('/newsletter', [NewsletterController::class, 'index'])->name('newsletter.index');
+Route::get('/newsletterfilter', [NewsletterController::class, 'filter'])->name('newletter.filter');

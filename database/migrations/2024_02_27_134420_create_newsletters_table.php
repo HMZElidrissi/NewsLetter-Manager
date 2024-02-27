@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateNewslettersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,6 +15,18 @@ return new class extends Migration
             $table->id();
             $table->text('content');
             $table->timestamps();
+            $table->foreignId('category_id')
+                ->constrained('categories')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignId('mail_id')
+                ->constrained('mails')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignId('user_id')
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 
@@ -25,4 +37,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('newsletters');
     }
-};
+}
