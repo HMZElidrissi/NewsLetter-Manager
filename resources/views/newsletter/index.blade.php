@@ -9,6 +9,7 @@
                 <h1 class="text-xl font-semibold text-gray-900">Newsletter</h1>
                 <p class="mt-2 text-sm text-gray-700">A list of all the Newsletter of products.</p>
             </div>
+
             <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
                 <a href="{{ route('newsletter/create') }}"
                     class="inline-flex items-center justify-center rounded-md border border-transparent bg-amber-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 sm:w-auto">+
@@ -87,6 +88,14 @@
                                             </div>
                                         </td>
                                         <td class="flex mt-3">
+                                            <a href="{{route('newsletter.email',['id' =>$Newsletter->id])}}">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25" />
+                                                </svg>
+
+                                            </a>
                                             <a href="{{ route('newsletter.edite', ['id' => $Newsletter->id]) }}">
 
                                                 <svg class="w-4 h-5 mx-2" viewBox="0 -0.5 21 21" version="1.1"
@@ -105,7 +114,8 @@
                                                     </g>
                                                 </svg>
                                             </a>
-                                            <form action="{{ route('newsletter.delete', ['id' => $Newsletter->id]) }}" method="POST" onsubmit="return confirm('Are you sure?');">
+                                            <form action="{{ route('newsletter.delete', ['id' => $Newsletter->id]) }}"
+                                                method="POST" onsubmit="return confirm('Are you sure?');">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit">
@@ -131,11 +141,11 @@
             document.getElementById('short_content_' + id).style.display = 'none';
             document.getElementById('full_content_' + id).style.display = 'block';
         }
-    
+
         function showLess(id) {
             document.getElementById('short_content_' + id).style.display = 'block';
             document.getElementById('full_content_' + id).style.display = 'none';
         }
     </script>
-    
+
 @endsection

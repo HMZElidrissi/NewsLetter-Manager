@@ -21,5 +21,7 @@ Route::delete('/newsletter/{id}', [NewsletterController::class, 'destroy'])->nam
 Route::get('/newsletter/create',[NewsletterController::class , 'create'])->name('newsletter/create');
 Route::post('/newsletter/create',[NewsletterController::class , 'store'])->name('newsletter/create');
 Route::get('/newsletter/index',[NewsletterController::class , 'index'])->name('newsletter.index');
+Route::get('/newsletter/{id}/email',[NewsletterController::class , 'email'])->name('newsletter.email');
+Route::post('/newsletter/{id}/email',[NewsletterController::class , 'Sendemail'])->name('newsletter.email');
 
 Route::get('/search' , [NewsletterController::class , 'search']);

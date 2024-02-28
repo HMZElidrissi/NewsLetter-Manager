@@ -45,7 +45,7 @@ class NewsletterController extends Controller
             'subheader' => 'required',
             'content' => 'required',
             'category_id' => 'required',
-            'image' => 'sometimes|image', // 'sometimes' rule makes it optional but must be an image when provided
+            'image' => 'sometimes|image', 
         ]);
 
         $newsletter = Newsletter::find($id);
@@ -58,22 +58,22 @@ class NewsletterController extends Controller
         $newsletter->content = $request->content;
         $newsletter->category_id = $request->category_id;
 
-        // Check if a new image was uploaded
+        
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $imageName = time() . '.' . $image->getClientOriginalExtension(); // Creating a unique name for the image
-            $image->move(public_path('images/newsletter'), $imageName); // Moving the image to the public directory
+            $imageName = time() . '.' . $image->getClientOriginalExtension(); 
+            $image->move(public_path('images/newsletter'), $imageName); 
 
-            // Optional: Delete the old image from the filesystem
+            
             $oldImage = public_path($newsletter->image);
             if (file_exists($oldImage)) {
-                @unlink($oldImage); // Use @ to suppress error if file doesn't exist
+                @unlink($oldImage); 
             }
 
-            $newsletter->image = 'images/newsletter/' . $imageName; // Updating the image path to the new file
+            $newsletter->image = 'images/newsletter/' . $imageName;
         }
 
-        $newsletter->save(); // Save the updated newsletter
+        $newsletter->save(); 
         return redirect()->route('newsletter.index')->with('success', 'Newsletter updated successfully.');
     }
 
@@ -101,13 +101,12 @@ class NewsletterController extends Controller
             return redirect()->route('newsletter.index')->withErrors('Newsletter not found.');
         }
 
-        // Optional: Delete the image from the filesystem
         $image = public_path($newsletter->image);
         if (file_exists($image)) {
-            @unlink($image); // Use @ to suppress error if file doesn't exist
+            @unlink($image); 
         }
 
-        $newsletter->delete(); // Delete the newsletter
+        $newsletter->delete();
         return redirect()->route('newsletter.index')->with('success', 'Newsletter deleted successfully.');
     }
 
@@ -117,27 +116,40 @@ class NewsletterController extends Controller
             'title' => 'required',
             'subheader' => 'required',
             'content' => 'required',
-            'image' => 'required|image', // Ensure the uploaded file is an image
+            'image' => 'required|image', 
             'category_id' => 'required',
         ]);
 
-        // Store the image directly in the 'public/images/newsletter' directory
         $image = $request->file('image');
-        $imageName = time() . '.' . $image->getClientOriginalExtension(); // Naming the image file
-        $image->move(public_path('images/newsletter'), $imageName); // Moving the file to the public directory
+        $imageName = time() . '.' . $image->getClientOriginalExtension(); 
+        $image->move(public_path('images/newsletter'), $imageName); 
 
-        // Create a new newsletter instance and set its properties
         $newsletter = new Newsletter();
         $newsletter->title = $request->title;
         $newsletter->subheader = $request->subheader;
         $newsletter->content = $request->content;
-        $newsletter->image = 'images/newsletter/' . $imageName; // Storing the path relative to the public directory
+        $newsletter->image = 'images/newsletter/' . $imageName; 
         $newsletter->category_id = $request->category_id;
 
-        // Save the newsletter
         $newsletter->save();
 
-        // Redirect to the index page of the newsletter
-        return redirect()->route('newsletter.index'); // Note the dot notation here
+        
+        return redirect()->route('newsletter.index'); 
     }
+    // public function email($id)
+    // {
+    //     $newsletter = Newsletter::find($id);
+    //     return view('newsletter.email', compact('newsletter'));
+    // }
+    // public function Sendemail(Request $request, $id)
+    // {
+    //     $newsletter = Newsletter::find($id);
+    //     $emails = $request->emails;
+    //     $subject = $request->subject;
+    //     $content = $request->content;
+    //     foreach ($emails as $email) {
+    //         Mail::to($email)->send(new SendNewsletter($subject, $content, $newsletter));
+    //     }
+    //     return redirect()->route('newsletter.index');
+    // }
 }
