@@ -55,6 +55,17 @@
                                                     >
                                             </div>
                                         </div>
+                                        <div class="col-span-3 sm:col-span-2">
+                                            <label for="title" class="block text-sm font-medium text-gray-700">Newsletter category</label>
+                                            <div class="mt-1 flex rounded-md shadow-sm">
+                                                <select name="category" id="category" class="mt-1 focus:ring-amber-500 focus:border-amber-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                                    @foreach($categories as $category)
+                                                    <option value="{{$category->id}}">{{$category->name}}</option>  
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
                                     </div>
                                     <div class="flex justify-end">
                                         <a type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500"

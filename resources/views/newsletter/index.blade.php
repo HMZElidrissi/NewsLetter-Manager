@@ -10,7 +10,7 @@
                 <p class="mt-2 text-sm text-gray-700">A list of all the Newsletter of products.</p>
             </div>
             <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-                <a href=""
+                <a href="{{route('newsletter/create')}}"
                     class="inline-flex items-center justify-center rounded-md border border-transparent bg-amber-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 sm:w-auto">+
                     Add Newsletter</a>
             </div>
@@ -34,39 +34,48 @@
                                     <th scope="col"
                                         class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
                                         Newsletter content</th>
+                                    <th scope="col"
+                                        class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                                        Newsletter Category</th>
                                     <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200 bg-white">
-                                {{-- @foreach ($Newsletter as $Newsletter) --}}
+                                @foreach ($newsletters as $Newsletter)
                                 <tr>
                                     
                                     <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                         <div class="flex space-x-2">
-                                            test Image
+                                            <img src="{{$Newsletter->image}}" alt="">
 
                                         </div>
                                     </td>
                                     <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                         <div class="flex space-x-2">
-                                            test title
+                                            {{$Newsletter->title}}
 
                                         </div>
                                     </td>
                                     <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                         <div class="flex space-x-2">
-                                          test subHeader
+                                          {{$Newsletter->subheader}}
 
                                         </div>
                                     </td>
                                     <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                         <div class="flex space-x-2">
-                                            Test Content
+                                            {{$Newsletter->content}}
+
+                                        </div>
+                                    </td>
+                                    <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                        <div class="flex space-x-2">
+                                            {{$Newsletter->category}}
 
                                         </div>
                                     </td>
                                     <td class="flex mt-3">
-                                        <a href="">
+                                        <a href="{{route('newslette/$Newsletter->id/delete')}}">
                                             <svg class="w-4 h-5 mx-2" viewBox="0 -0.5 21 21" version="1.1"
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -96,7 +105,7 @@
                                         </form>
                                     </td>
                                 </tr>
-                                {{-- @endforeach --}}
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

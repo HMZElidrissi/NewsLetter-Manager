@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Newsletter;
 use Illuminate\Http\Request;
 
@@ -20,4 +21,13 @@ class NewsletterController extends Controller
         })->get();
         return view('newsletter.index' , compact('newsletters'));
    }
+   public function index(){
+       $newsletters = Newsletter::all();
+       return view('newsletter.index' , compact('newsletters'));
+   }
+   public function create(){
+        $categories = Category::all();
+       return view('newsletter.create',compact('categories'));
+   }
+   
 }
