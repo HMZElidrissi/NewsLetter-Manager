@@ -9,9 +9,9 @@ class Newsletter extends Model
 {
     use HasFactory;
 
-    public function categories()
+    public function category()
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsTo(Category::class);
     }
     protected $fillable = [
         'title',

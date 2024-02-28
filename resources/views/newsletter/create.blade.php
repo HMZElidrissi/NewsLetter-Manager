@@ -16,7 +16,6 @@
                             <div class="mt-5 md:mt-0 md:col-span-2">
                                 <form class="space-y-6" action="" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                    @method('PUT')
                                     <div class="grid grid-cols-3 gap-6">
                                         <div class="col-span-3 sm:col-span-2">
                                             <label for="title" class="block text-sm font-medium text-gray-700"> Newsletter Image
@@ -56,9 +55,9 @@
                                             </div>
                                         </div>
                                         <div class="col-span-3 sm:col-span-2">
-                                            <label for="title" class="block text-sm font-medium text-gray-700">Newsletter category</label>
+                                            <label for="category" class="block text-sm font-medium text-gray-700">Newsletter category</label>
                                             <div class="mt-1 flex rounded-md shadow-sm">
-                                                <select name="category" id="category" class="mt-1 focus:ring-amber-500 focus:border-amber-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                                <select name="category_id" id="category" class="mt-1 focus:ring-amber-500 focus:border-amber-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                                     @foreach($categories as $category)
                                                     <option value="{{$category->id}}">{{$category->name}}</option>  
                                                     @endforeach

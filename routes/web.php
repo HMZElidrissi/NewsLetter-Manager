@@ -15,9 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/newsletter/{id}/edit',[NewsletterController::class , 'edite']);
-Route::get('/newsletter/{id}/delete',[NewsletterController::class , 'delete']);
+Route::get('/newsletter/{id}/edit',[NewsletterController::class , 'edit'])->name('newsletter.edite');
+Route::post('/newsletter/{id}/edit',[NewsletterController::class , 'update'])->name('newsletter.edite');
+Route::delete('/newsletter/{id}', [NewsletterController::class, 'destroy'])->name('newsletter.delete');
 Route::get('/newsletter/create',[NewsletterController::class , 'create'])->name('newsletter/create');
-Route::get('/newsletter/index',[NewsletterController::class , 'index'])->name('newsletter/index');
+Route::post('/newsletter/create',[NewsletterController::class , 'store'])->name('newsletter/create');
+Route::get('/newsletter/index',[NewsletterController::class , 'index'])->name('newsletter.index');
 
 Route::get('/search' , [NewsletterController::class , 'search']);

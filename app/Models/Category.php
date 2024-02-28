@@ -13,4 +13,7 @@ class Category extends Model
     {
         return $this->hasMany(Newsletter::class);
     }
+    protected $fillable = [
+        'name',
+    ];
 }
