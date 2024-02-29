@@ -16,15 +16,12 @@ class NewsletterController extends Controller
     public function search(Request $request)
     {
         $search = $request->search;
-        $newsletters = Newsletter::where(function ($query) use ($search) {
-            $query->where('content', 'LIKE', '%' . $search . '%');
-        })
-            ->orWhereHas('categories', function ($query) use ($search) {
-                $query->where('name', 'like', '%' . $search . '%');
-            })
-            ->orWherehas('mails', function ($query) use ($search) {
-                $query->where('email', 'like', '%' . $search . '%');
-            })->get();
+        $newsletters = Newsletter::join('categories' , 'newsletters.category_id' , '=' , 'categories.id')->where(function ($query) use ($search) {
+            $query->where('content', 'LIKE', '%' . $search . '%')
+                  ->orwhere('name', 'like', '%' . $search . '%')
+                  ->orwhere('title', 'like', '%' . $search . '%');
+            })->paginate(2);
+           
         return view('newsletter.index', compact('newsletters'));
     }
     public function filter(Request $request)
@@ -46,8 +43,10 @@ class NewsletterController extends Controller
     }
     public function index()
     {
-        $newsletters = Newsletter::with('category')->get();
+        $newsletters = Newsletter::with('category')->paginate(2);
         $categories = Category::all();
+        sleep(1.5);
+
         return view('newsletter.index', compact('newsletters','categories'));
     }
     public function create()

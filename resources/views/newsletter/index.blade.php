@@ -75,9 +75,9 @@
                                     <th scope="col">Actions</th>
                                 </tr>
                             </thead>
-                            <tbody class="divide-y divide-gray-200 bg-white">
+                            <tbody class="divide-y divide-gray-200 bg-white container">
                                 @foreach ($newsletters as $Newsletter)
-                                    <tr>
+                                    <tr class="post">
 
                                         <td
                                             class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
@@ -164,12 +164,25 @@
                                     </tr>
                                 @endforeach
                             </tbody>
+                            
                         </table>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="page-load-status">
+        <div class="" style="display: flex; justify-content: center; align-items: center;">
+            <span class="loader-ellips__dot" style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: #333; margin-right: 5px; animation: dot1 1s infinite;"></span>
+            <span class="loader-ellips__dot" style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: #333; margin-right: 5px; animation: dot2 1s infinite;"></span>
+            <span class="loader-ellips__dot" style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: #333; margin-right: 5px; animation: dot3 1s infinite;"></span>
+            <span class="loader-ellips__dot" style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: #333; margin-right: 5px; animation: dot4 1s infinite;"></span>                                                
+        </div>
+        <p class="infinite-scroll-last" style="display: flex; justify-content: center; align-items: center; color:darkgray; font-family: Arial, Helvetica, sans-serif; font-size:x-large">End of content</p>
+        <p class="infinite-scroll-error">No more pages to load</p>
+    </div>
+
     <script>
         function showMore(id) {
             document.getElementById('short_content_' + id).style.display = 'none';
@@ -181,5 +194,23 @@
             document.getElementById('full_content_' + id).style.display = 'none';
         }
     </script>
+    <script>
+        new InfiniteScroll('.container', {
+            path: getPenPath,
+            append: '.post',
+            status: '.page-load-status',
+        });
+
+   
+       function getPenPath() {
+         const nextPenSlugs = [];
+         for(let i = 2; i<={{ $newsletters->lastPage() }}; i++){
+           nextPenSlugs.push('index?page='+i);
+         }
+   
+         return nextPenSlugs[ this.loadCount ];
+       }
+   
+   </script>
 
 @endsection

@@ -8,7 +8,7 @@
       </button>
       <div class="flex-1 px-4 flex justify-between">
         <div class="flex-1 flex">
-          <form class="w-full flex md:ml-0" action="/search" method="get">
+          <form class="w-full flex md:ml-0" action="/newsletter/search" method="get">
             <label for="search-field" class="sr-only">Search</label>
             <div class="relative w-full text-gray-400 focus-within:text-gray-600">
               <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none">
