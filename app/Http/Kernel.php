@@ -23,6 +23,11 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     ];
 
+    protected $routeMiddleware = [
+        'jwt' => \App\Http\Middleware\JwtMiddleware::class,
+    ];
+
+
     /**
      * The application's route middleware groups.
      *
