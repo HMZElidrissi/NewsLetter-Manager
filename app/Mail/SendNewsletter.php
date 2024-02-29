@@ -1,8 +1,6 @@
 <?php
-
 namespace App\Mail;
 
-use App\Models\Newsletter;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -15,17 +13,24 @@ class SendNewsletter extends Mailable
     public $subject;
     public $content;
     public $newsletter;
+    public $imagePath;
 
-    public function __construct($subject, $content, $newsletter)
+    public function __construct($subject, $content, $newsletter, $imagePath)
     {
         $this->subject = $subject;
         $this->content = $content;
         $this->newsletter = $newsletter;
+        $this->imagePath = $imagePath;
     }
 
     public function build()
     {
-        $newsletters = Newsletter::all();
-        return $this->view('newsletter.index',compact('newsletters'))->with(['content' => $this->content,])->subject($this->subject);
+        return $this->view('emails.newsletter')
+                    ->subject($this->subject)
+                    ->with([
+                        'content' => $this->content,
+                        'newsletter' => $this->newsletter,
+                        'imagePath' => $this->imagePath,
+                    ]);
     }
 }

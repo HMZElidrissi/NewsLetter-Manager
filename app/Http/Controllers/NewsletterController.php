@@ -152,11 +152,10 @@ class NewsletterController extends Controller
         $emails = mailModel::find($emails_id);
         $EmailSubject = $request->EmailSubject;
         $EMailContent = $request->EMailContent;
-        if ($request->emails=='all'){
-            $emails = mailModel::all();
-        }
+        $emails = $request->emails === 'all' ? mailModel::all() : mailModel::findMany($request->emails);
+
         foreach ($emails as $email) {
-            Mail::to($email)->send(new SendNewsletter($EmailSubject, $EMailContent, $newsletter));
+            Mail::to($email)->send(new SendNewsletter($EmailSubject, $EMailContent, $newsletter, $newsletter->image));
         }
         return redirect()->route('newsletter.index');
     }

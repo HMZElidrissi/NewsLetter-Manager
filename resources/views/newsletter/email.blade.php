@@ -37,10 +37,12 @@
                                             </div>
                                         </div>
                                         <div class="col-span-3 sm:col-span-2">
-                                            <label for="emails" class="block text-sm font-medium text-gray-700">Email</label>
+                                            <label for="emails"
+                                                class="block text-sm font-medium text-gray-700">Email</label>
                                             <div class="mt-1 flex rounded-md shadow-sm">
                                                 <select name="emails[]" id="emails"
-                                                    class="focus:ring-amber-500 focus:border-amber-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" multiple>
+                                                    class="focus:ring-amber-500 focus:border-amber-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                    multiple>
                                                     <option value="">Select an email</option>
                                                     @foreach ($mails as $mail)
                                                         <option value="{{ $mail->id }}">{{ $mail->email }}</option>
@@ -48,13 +50,14 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-                                            <button type="button" id="sendToAll" class="mt-2 text-white bg-blue-500 hover:bg-blue-700 rounded-md px-4 py-2">
+                                            <button type="button" id="sendToAll"
+                                                class="mt-2 text-white bg-blue-500 hover:bg-blue-700 rounded-md px-4 py-2">
                                                 Send to All
                                             </button>
                                         </div>
-                                        
-                                        
-                                        
+
+
+
 
                                     </div>
                                     <div class="flex justify-end">
@@ -86,7 +89,21 @@
                 document.getElementById('sendToAll').innerText = 'Send to All';
             });
 
-    
+
         });
+        // document.getElementById('sendToAll').addEventListener('click', function() {
+        //     // Create a hidden input to store the value 'all'
+        //     let hiddenInput = document.createElement('input');
+        //     hiddenInput.type = 'hidden';
+        //     hiddenInput.name = 'emails';
+        //     hiddenInput.value = 'all';
+
+        //     // Append the hidden input to the form
+        //     let form = document.querySelector('form');
+        //     form.appendChild(hiddenInput);
+
+        //     // Submit the form
+        //     form.submit();
+        // });
     </script>
 @endsection
