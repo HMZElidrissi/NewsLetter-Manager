@@ -21,8 +21,11 @@ class NewsletterController extends Controller
                   ->orwhere('name', 'like', '%' . $search . '%')
                   ->orwhere('title', 'like', '%' . $search . '%');
             })->paginate(2);
+            $categories = Category::all();
+
+        
            
-        return view('newsletter.index', compact('newsletters'));
+        return view('newsletter.index', compact('newsletters','categories'));
     }
     public function filter(Request $request)
     {
