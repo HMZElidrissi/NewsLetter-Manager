@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        //Blueprint est un objet qui peut me donné la possibilite de gerer les colones 
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');

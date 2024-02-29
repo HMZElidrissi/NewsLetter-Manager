@@ -9,8 +9,12 @@ class Category extends Model
 {
     use HasFactory;
 
-    public function newsletters()
-    {
-        return $this->hasMany(Newsletter::class);
-    }
+    protected $fillable = [
+        'name',
+    ];
+
+    // public function newsletters()
+    // {
+    //     return $this->hasMany(Newsletter::class);
+    // }
 }
