@@ -8,9 +8,22 @@ use Illuminate\Database\Eloquent\Model;
 class Newsletter extends Model
 {
     use HasFactory;
+    protected $failable = [
+        'content',
+        'category_id',
+        'mail_id',
+        'user_id',
+    ];
 
-    public function categories()
+    public function category()
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsTo(Category::class);
     }
+    protected $fillable = [
+        'title',
+        'subheader',
+        'content',
+        'image',
+        'category_id',
+    ];
 }
