@@ -49,6 +49,8 @@
                                                         {{-- {{dd($$mail->id)}} --}}
                                                     @endforeach
                                                 </select>
+                                                <input type="hidden" name="emails" id="send-to-all-input" value="">
+
                                             </div>
                                             <button type="button" id="sendToAll"
                                                 class="mt-2 text-white bg-blue-500 hover:bg-blue-700 rounded-md px-4 py-2">
@@ -78,32 +80,24 @@
     </div>
     <script>
         document.getElementById('sendToAll').addEventListener('click', function() {
-            document.getElementById('emails').value = 'all';
-            document.getElementById('emails').style.display = 'none';
-            document.getElementById('sendToAll').style.backgroundColor = 'red';
-            document.getElementById('sendToAll').innerText = 'Revert';
-            document.getElementById('sendToAll').addEventListener('click', function() {
-                document.getElementById('emails').value = '';
-                document.getElementById('emails').style.display = 'block';
-                document.getElementById('sendToAll').style.backgroundColor = 'blue';
-                document.getElementById('sendToAll').innerText = 'Send to All';
-            });
+            var emailsSelect = document.getElementById('emails');
+            var sendToAllInput = document.getElementById('send-to-all-input');
 
-
+            if (this.textContent.includes('Send to All')) {
+                // Clear selected options
+                Array.from(emailsSelect.options).forEach(function(option) {
+                    option.selected = false;
+                });
+                emailsSelect.style.display = 'none'; // Hide the select box
+                sendToAllInput.value = 'all'; // Set the hidden input value to 'all'
+                this.textContent = 'Revert';
+                this.style.backgroundColor = 'red';
+            } else {
+                emailsSelect.style.display = 'block'; // Show the select box
+                sendToAllInput.value = ''; // Clear the hidden input value
+                this.textContent = 'Send to All';
+                this.style.backgroundColor = 'blue';
+            }
         });
-        // document.getElementById('sendToAll').addEventListener('click', function() {
-        //     // Create a hidden input to store the value 'all'
-        //     let hiddenInput = document.createElement('input');
-        //     hiddenInput.type = 'hidden';
-        //     hiddenInput.name = 'emails';
-        //     hiddenInput.value = 'all';
-
-        //     // Append the hidden input to the form
-        //     let form = document.querySelector('form');
-        //     form.appendChild(hiddenInput);
-
-        //     // Submit the form
-        //     form.submit();
-        // });
     </script>
 @endsection

@@ -6,7 +6,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SendNewsletter extends Mailable
+class SendNewsletter extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -20,7 +20,7 @@ class SendNewsletter extends Mailable
         $this->subject = $subject;
         $this->content = $content;
         $this->newsletter = $newsletter;
-        $this->imagePath = $imagePath;
+        $this->imagePath = public_path($imagePath);
     }
 
     public function build()

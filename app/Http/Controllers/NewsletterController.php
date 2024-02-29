@@ -49,7 +49,7 @@ class NewsletterController extends Controller
             'subheader' => 'required',
             'content' => 'required',
             'category_id' => 'required',
-            'image' => 'sometimes|image', 
+            'image' => 'sometimes|image',
         ]);
 
         $newsletter = Newsletter::find($id);
@@ -62,22 +62,22 @@ class NewsletterController extends Controller
         $newsletter->content = $request->content;
         $newsletter->category_id = $request->category_id;
 
-        
+
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $imageName = time() . '.' . $image->getClientOriginalExtension(); 
-            $image->move(public_path('images/newsletter'), $imageName); 
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images/newsletter'), $imageName);
 
-            
+
             $oldImage = public_path($newsletter->image);
             if (file_exists($oldImage)) {
-                @unlink($oldImage); 
+                @unlink($oldImage);
             }
 
             $newsletter->image = 'images/newsletter/' . $imageName;
         }
 
-        $newsletter->save(); 
+        $newsletter->save();
         return redirect()->route('newsletter.index')->with('success', 'Newsletter updated successfully.');
     }
 
@@ -107,7 +107,7 @@ class NewsletterController extends Controller
 
         $image = public_path($newsletter->image);
         if (file_exists($image)) {
-            @unlink($image); 
+            @unlink($image);
         }
 
         $newsletter->delete();
@@ -120,25 +120,25 @@ class NewsletterController extends Controller
             'title' => 'required',
             'subheader' => 'required',
             'content' => 'required',
-            'image' => 'required|image', 
+            'image' => 'required|image',
             'category_id' => 'required',
         ]);
 
         $image = $request->file('image');
-        $imageName = time() . '.' . $image->getClientOriginalExtension(); 
-        $image->move(public_path('images/newsletter'), $imageName); 
+        $imageName = time() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('images/newsletter'), $imageName);
 
         $newsletter = new Newsletter();
         $newsletter->title = $request->title;
         $newsletter->subheader = $request->subheader;
         $newsletter->content = $request->content;
-        $newsletter->image = 'images/newsletter/' . $imageName; 
+        $newsletter->image = 'images/newsletter/' . $imageName;
         $newsletter->category_id = $request->category_id;
 
         $newsletter->save();
 
-        
-        return redirect()->route('newsletter.index'); 
+
+        return redirect()->route('newsletter.index');
     }
     public function email($id)
     {
@@ -148,17 +148,40 @@ class NewsletterController extends Controller
     public function Sendemail(Request $request, $id)
     {
         $newsletter = Newsletter::find($id);
-        $emails_id = $request->emails;
-        $emails = mailModel::find($emails_id);
         $EmailSubject = $request->EmailSubject;
         $EMailContent = $request->EMailContent;
-        $emails = $request->emails === 'all' ? mailModel::all() : mailModel::findMany($request->emails);
+
+        if ($request->input('emails') === 'all') {
+            $emails = mailModel::all()->pluck('email');
+        } elseif (!empty($request->input('emails'))) {
+            $emails = mailModel::whereIn('id', $request->input('emails'))->pluck('email');
+        } else {
+            return redirect()->back()->withErrors('No email addresses selected.');
+        }
 
         foreach ($emails as $email) {
-            Mail::to($email)->send(new SendNewsletter($EmailSubject, $EMailContent, $newsletter, $newsletter->image));
+            Mail::to($email)->queue(new SendNewsletter($EmailSubject, $EMailContent, $newsletter, $newsletter->image));
         }
+
         return redirect()->route('newsletter.index');
     }
-    
+
+
+
+    // public function Sendemail(Request $request, $id)
+    // {
+    //     $newsletter = Newsletter::find($id);
+    //     $emails_id = $request->emails;
+    //     $emails = mailModel::find($emails_id);
+    //     $EmailSubject = $request->EmailSubject;
+    //     $EMailContent = $request->EMailContent;
+    //     $emails = $request->emails === 'all' ? mailModel::all() : mailModel::findMany($request->emails);
+
+    //     foreach ($emails as $email) {
+    //         Mail::to($email)->send(new SendNewsletter($EmailSubject, $EMailContent, $newsletter, $newsletter->image));
+    //     }
+    //     return redirect()->route('newsletter.index');
+    // }
+
 
 }
