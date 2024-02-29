@@ -31,9 +31,10 @@ class NewsletterSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'category_id' => $faker->numberBetween(1, 5),
-                'mail_id' => $faker->numberBetween(1, 10),
-                'user_id' => $faker->numberBetween(1, 20),
-            ]);
+                'title' => $faker->sentence,
+                'subheader' => $faker->sentence,
+                'image' => $faker->imageUrl(640, 480, 'cats', true)
+                ]);
         }
     }
 }

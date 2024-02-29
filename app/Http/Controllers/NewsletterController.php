@@ -23,8 +23,8 @@ class NewsletterController extends Controller
             })->paginate(2);
             $categories = Category::all();
 
-        
-           
+
+
         return view('newsletter.index', compact('newsletters','categories'));
     }
     public function filter(Request $request)

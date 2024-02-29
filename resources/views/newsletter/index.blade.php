@@ -202,15 +202,6 @@
         });
 
    
-       function getPenPath() {
-         const nextPenSlugs = [];
-         for(let i = 2; i<={{ $newsletters->lastPage() }}; i++){
-           nextPenSlugs.push('index?page='+i);
-         }
-   
-         return nextPenSlugs[ this.loadCount ];
-       }
-   
    </script>
 
 @endsection
