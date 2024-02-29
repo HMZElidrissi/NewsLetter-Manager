@@ -31,9 +31,9 @@ class NewsletterController extends Controller
     {
         $newsletters = Newsletter::join('categories', 'newsletters.category_id', '=', 'categories.id')
             ->join('users', 'newsletters.user_id', '=', 'users.id')
-            ->select('newsletters.*', 'categories.name as category_name', 'users.name as user_name')
-            ->paginate(5); // Number of newsletters per page (you can adjust this number)
-
+            ->join('mails', 'newsletters.mail_id', '=', 'mails.id')
+            ->select('newsletters.*', 'categories.name as category_name', 'users.name as user_name', 'mails.email as mail_email')
+            ->paginate(5);
         $categories = Category::all();
 
         return view('newsletter.index', compact('newsletters', 'categories'));
@@ -42,6 +42,7 @@ class NewsletterController extends Controller
     public function filter(Request $request)
     {
         $selectedCategories = $request->input('category', []);
+        // $selectedCategories = $request->input('category', []);
 
         $newsletters = Newsletter::join('categories', 'newsletters.category_id', '=', 'categories.id')
             ->join('users', 'newsletters.user_id', '=', 'users.id')
@@ -53,6 +54,25 @@ class NewsletterController extends Controller
 
         if ($newsletters->isEmpty()) {
             return redirect()->route('newsletter.index')->with('message', 'No newsletters available with this category.');
+        }
+
+        return view('newsletter.index', compact('newsletters', 'categories'));
+    }
+    public function filterByEmail(Request $request)
+    {
+        $email = $request->input('email');
+
+        $newsletters = Newsletter::join('mails', 'newsletters.mail_id', '=', 'mails.id')
+            ->join('users', 'newsletters.user_id', '=', 'users.id')
+            ->select('newsletters.*', 'mails.email as mail_email', 'users.name as user_name')
+            ->where('mails.email', '=', $email)
+            ->paginate(5);
+
+
+
+        $categories = Category::all();
+        if ($newsletters->isEmpty()) {
+            return redirect()->route('newsletter.index')->with('message', 'No newsletters available with this email.');
         }
 
         return view('newsletter.index', compact('newsletters', 'categories'));
