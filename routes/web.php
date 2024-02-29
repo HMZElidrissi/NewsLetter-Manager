@@ -42,3 +42,28 @@ Route::get('/newsletter', [NewsletterController::class, 'index'])->name('newslet
 Route::get('/newsletterfilter', [NewsletterController::class, 'filter'])->name('newletter.filter');
 Route::get('/newsletterfilteremail', [NewsletterController::class, 'filterByEmail'])->name('newletter.filterEmail');
 Route::get('/newsletterfilter', [NewsletterController::class, 'filter'])->name('newletter.filter');
+
+Route::get('/search' , [NewsletterController::class , 'search']);
+//Route for categorie
+//Page
+Route::get('/categoriePage',[CategoryController::class,'index']);
+
+//Traitement
+Route::get('/categoriesAddPage',[CategoryController::class,'categoriesAddPage']);
+Route::get('/deleteCategory' , [CategoryController::class,'deleteCategory']) ;
+Route::post('/addcategorie' , [CategoryController::class,'addcategorie']) ;
+
+Route::get('/pageUpdateCategory',[CategoryController::class, 'pageUpdateCategory']);
+
+Route::post('/updateCategory',[CategoryController::class, 'updateCategory']);
+
+//Route for Email
+Route::get('/emailpage',[MailController::class,'showemail']);
+Route::get('/deleteEmail' , [MailController::class,'deleteEmail']);
+
+Route::get('/emailAddPage',[MailController::class,'emailAddPage']);
+Route::post('/addemail' , [MailController::class,'addemail']) ;
+
+Route::get('/pageUpdateMail',[MailController::class, 'pageUpdateMail']);
+Route::post('/updateEmail',[MailController::class, 'updateEmail']);
+

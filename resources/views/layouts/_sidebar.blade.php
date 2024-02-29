@@ -38,7 +38,7 @@
           </a>
 
 
-          <a href="" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+          <a href="/categoriePage" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-base font-medium rounded-md">
             <!-- Heroicon name: outline/Categories -->
             <svg class="text-gray-400 group-hover:text-amber-600 mr-4 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.6 8.4h0m-4.7 11.3-6.6-6.6a1 1 0 0 1 0-1.4l7.3-7.4a1 1 0 0 1 .7-.3H18a2 2 0 0 1 2 2v5.5a1 1 0 0 1-.3.7l-7.5 7.5a1 1 0 0 1-1.3 0Z"/>
@@ -47,12 +47,12 @@
           </a>
 
 
-          <a href="" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+          <a href="/emailpage" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-base font-medium rounded-md">
             <!-- Heroicon name: outline/inbox -->
             <svg class="text-gray-400 group-hover:text-amber-600 mr-4 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.3L19 7H7.3"/>
             </svg>
-            Sales
+            Emails
           </a>
 
 
@@ -107,7 +107,7 @@
           </a>
 
 
-          <a href="" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+          <a href="/categoriePage" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
             <!-- Heroicon name: outline/Categories -->
             <svg class="text-gray-400 group-hover:text-amber-600 mr-3 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.6 8.4h0m-4.7 11.3-6.6-6.6a1 1 0 0 1 0-1.4l7.3-7.4a1 1 0 0 1 .7-.3H18a2 2 0 0 1 2 2v5.5a1 1 0 0 1-.3.7l-7.5 7.5a1 1 0 0 1-1.3 0Z"/>
@@ -116,12 +116,12 @@
           </a>
 
 
-          <a href="" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+          <a href="/emailpage" class="text-gray-600 hover:bg-gray-50 hover:text-amber-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
             <!-- Heroicon name: outline/inbox -->
             <svg class="text-gray-400 group-hover:text-amber-600 mr-3 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.3L19 7H7.3"/>
             </svg>
-            Sales
+            Emails
           </a>
 
 
