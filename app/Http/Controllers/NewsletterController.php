@@ -6,6 +6,7 @@ use App\Mail\SendNewsletter;
 use App\Models\Category;
 use App\Models\Mail as mailModel;
 use App\Models\Newsletter;
+use GuzzleHttp\Psr7\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 

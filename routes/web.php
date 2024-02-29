@@ -24,4 +24,7 @@ Route::get('/newsletter/index',[NewsletterController::class , 'index'])->name('n
 Route::get('/newsletter/{id}/email',[NewsletterController::class , 'email'])->name('newsletter.email');
 Route::post('/newsletter/{id}/email',[NewsletterController::class , 'Sendemail'])->name('newsletter.email');
 
-Route::get('/search' , [NewsletterController::class , 'search']);
+Route::get('/search', [NewsletterController::class, 'search']);
+Route::get('/newsletter', [NewsletterController::class, 'index'])->name('newsletter.index');
+Route::get('/newsletterfilter', [NewsletterController::class, 'filter'])->name('newletter.filter');
+Route::get('/newsletterfilteremail', [NewsletterController::class, 'filterByEmail'])->name('newletter.filterEmail');
