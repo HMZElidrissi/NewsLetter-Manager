@@ -1,12 +1,39 @@
 <!doctype html>
 <html class="h-full bg-gray-100" lang="en">
 <head>
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
     <title>@yield('title')</title>
+    <script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.js"></script>
+    <style>
+      @keyframes dot1 {
+        0%, 100% { opacity: 0.2; }
+        50% { opacity: 1; }
+      }
+      
+      @keyframes dot2 {
+        0%, 100% { opacity: 0.2; }
+        50% { opacity: 1; }
+        animation-delay: 0.25s;
+      }
+      
+      @keyframes dot3 {
+        0%, 100% { opacity: 0.2; }
+        50% { opacity: 1; }
+        animation-delay: 0.5s;
+      }
+      
+      @keyframes dot4 {
+        0%, 100% { opacity: 0.2; }
+        50% { opacity: 1; }
+        animation-delay: 0.75s;
+      }
+      </style>
+      
 </head>
 <body class="h-full">
 <div>
