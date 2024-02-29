@@ -10,8 +10,8 @@
                     <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
                         <div class="md:grid md:grid-cols-3 md:gap-6">
                             <div class="md:col-span-1">
-                                <h3 class="text-lg font-medium leading-6 text-gray-900">Edit Category</h3>
-                                <p class="mt-1 text-sm text-gray-500">Update the category's information.</p>
+                                <h3 class="text-lg font-medium leading-6 text-gray-900">Edit newsletter</h3>
+                                <p class="mt-1 text-sm text-gray-500">Update the newsletter's information.</p>
                             </div>
                             <div class="mt-5 md:mt-0 md:col-span-2">
                                 <form class="space-y-6" action="" method="POST" enctype="multipart/form-data">

@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendNewsletter;
 use App\Models\Category;
+use App\Models\Mail as mailModel;
 use App\Models\Newsletter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+
 
 class NewsletterController extends Controller
 {
@@ -136,20 +140,26 @@ class NewsletterController extends Controller
         
         return redirect()->route('newsletter.index'); 
     }
-    // public function email($id)
-    // {
-    //     $newsletter = Newsletter::find($id);
-    //     return view('newsletter.email', compact('newsletter'));
-    // }
-    // public function Sendemail(Request $request, $id)
-    // {
-    //     $newsletter = Newsletter::find($id);
-    //     $emails = $request->emails;
-    //     $subject = $request->subject;
-    //     $content = $request->content;
-    //     foreach ($emails as $email) {
-    //         Mail::to($email)->send(new SendNewsletter($subject, $content, $newsletter));
-    //     }
-    //     return redirect()->route('newsletter.index');
-    // }
+    public function email($id)
+    {
+        $mails = mailModel::all();
+        return view('newsletter.email', compact('mails'));
+    }
+    public function Sendemail(Request $request, $id)
+    {
+        $newsletter = Newsletter::find($id);
+        $emails_id = $request->emails;
+        $emails = mailModel::find($emails_id);
+        $EmailSubject = $request->EmailSubject;
+        $EMailContent = $request->EMailContent;
+        if ($request->emails=='all'){
+            $emails = mailModel::all();
+        }
+        foreach ($emails as $email) {
+            Mail::to($email)->send(new SendNewsletter($EmailSubject, $EMailContent, $newsletter));
+        }
+        return redirect()->route('newsletter.index');
+    }
+    
+
 }

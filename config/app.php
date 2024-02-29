@@ -182,6 +182,8 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        'Mail' => Illuminate\Support\Facades\Mail::class,
+
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
