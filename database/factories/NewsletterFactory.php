@@ -18,7 +18,10 @@ class NewsletterFactory extends Factory
     {
         return [
             'content' => $this->faker->text,
-            '' => $this->faker->text,
+            'image' => $this->faker->imageUrl,
+            'subheader' => $this->faker->sentence,
+            'title' => $this->faker->sentence,
+            'category_id' => 1,
         ];
     }
 }
