@@ -27,10 +27,28 @@ class NewsletterController extends Controller
             })->get();
         return view('newsletter.index', compact('newsletters'));
     }
+    public function filter(Request $request)
+    {
+        $selectedCategories = $request->input('category', []);
+        // $selectedCategories = $request->input('category', []);
+
+        $newsletters = Newsletter::with('category')->whereHas('category', function ($query) use ($selectedCategories) {
+            $query->whereIn('id', $selectedCategories);
+        })->get();
+
+        $categories = Category::all();
+
+        if ($newsletters->isEmpty()) {
+            return redirect()->route('newsletter.index')->with('message', 'No newsletters available with this category.');
+        }
+
+        return view('newsletter.index', compact('newsletters', 'categories'));
+    }
     public function index()
     {
         $newsletters = Newsletter::with('category')->get();
-        return view('newsletter.index', compact('newsletters'));
+        $categories = Category::all();
+        return view('newsletter.index', compact('newsletters','categories'));
     }
     public function create()
     {

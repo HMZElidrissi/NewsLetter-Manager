@@ -3,6 +3,40 @@
 @section('title', 'Manage Newsletter')
 
 @section('content')
+    <div class="flex">
+        <div class="bg-gray-100 rounded-lg p-6 pt-4">
+            <p class="text-lg font-semibold mb-4">Filter by Category</p>
+            <form action="{{ route('newletter.filter') }}" method="GET">
+                @csrf
+                <div class="relative inline-flex">
+                    <select name="category[]" multiple id="category"
+                        class=" block w-full py-2 px-3 border bg-white rounded-md shadow-sm  ">
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+
+                </div>
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Filter
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="mt-4">
+        @if (session('message'))
+            <div class="alert alert-danger bg-red-500 mg-20">
+                {{ session('message') }}
+            </div>
+        @endif
+
+
+
+
+
+    </div>
     <div class="px-4 sm:px-6 lg:px-8">
         <div class="sm:flex sm:items-center">
             <div class="sm:flex-auto">
@@ -88,7 +122,7 @@
                                             </div>
                                         </td>
                                         <td class="flex mt-3">
-                                            <a href="{{route('newsletter.email',['id' =>$Newsletter->id])}}">
+                                            <a href="{{ route('newsletter.email', ['id' => $Newsletter->id]) }}">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                     stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
