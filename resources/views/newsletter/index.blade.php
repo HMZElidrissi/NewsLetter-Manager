@@ -164,9 +164,9 @@
                                     </tr>
                                 @endforeach
                             </tbody>
-                            
+
                         </table>
-                        
+
                     </div>
                 </div>
             </div>
@@ -177,7 +177,7 @@
             <span class="loader-ellips__dot" style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: #333; margin-right: 5px; animation: dot1 1s infinite;"></span>
             <span class="loader-ellips__dot" style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: #333; margin-right: 5px; animation: dot2 1s infinite;"></span>
             <span class="loader-ellips__dot" style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: #333; margin-right: 5px; animation: dot3 1s infinite;"></span>
-            <span class="loader-ellips__dot" style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: #333; margin-right: 5px; animation: dot4 1s infinite;"></span>                                                
+            <span class="loader-ellips__dot" style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background-color: #333; margin-right: 5px; animation: dot4 1s infinite;"></span>
         </div>
         <p class="infinite-scroll-last" style="display: flex; justify-content: center; align-items: center; color:darkgray; font-family: Arial, Helvetica, sans-serif; font-size:x-large">End of content</p>
         <p class="infinite-scroll-error">No more pages to load</p>
@@ -201,7 +201,16 @@
             status: '.page-load-status',
         });
 
-   
+
+        function getPenPath() {
+            const nextPenSlugs = [];
+            for(let i = 2; i<={{ $newsletters->lastPage() }}; i++){
+                nextPenSlugs.push('index?page='+i);
+            }
+
+            return nextPenSlugs[ this.loadCount ];
+        }
+
    </script>
 
 @endsection
