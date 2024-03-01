@@ -34,7 +34,7 @@ class AuthController extends Controller
         $token = $this->createJwtToken($user->id);
 
         // return response()->json(['user' => $user, 'token' => $token], 201);
-        return redirect()->route('dashboard')->cookie('jwt', $token, 60);
+        return redirect()->route('newsletter.index')->cookie('jwt', $token, 60);
     }
 
     public function login(Request $request)
@@ -53,7 +53,7 @@ class AuthController extends Controller
         $token = $this->createJwtToken($user->id);
 
         // return response()->json(['user' => $user, 'token' => $token], 200);
-        return redirect()->route('dashboard')->cookie('jwt', $token, 60);
+        return redirect()->route('newsletter.index')->cookie('jwt', $token, 60);
 
     }
 
